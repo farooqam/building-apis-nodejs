@@ -13,18 +13,24 @@ function getTasks() {
     return tasks;
 }
 
-app.get(
-    "/health", 
-    (req, res) => res.json(
-        {
-            api: "Task API",
-            status: "green",
-            date: Date.now()
-        }));
+function getHealth() {
+    var health = {
+        api: "Task API",
+        status: "green",
+        date: Date.now()
+    };
+
+    return health;
+}
+
 
 app.get(
     "/",
-    (req, res) => res.json(getTasks()));
+    (req, res) => res.json(getHealth()));
+
+app.get(
+    "/health", 
+    (req, res) => res.json(getHealth()));
 
 app.get(
     "/tasks",
