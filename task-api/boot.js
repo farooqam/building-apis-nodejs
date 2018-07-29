@@ -1,16 +1,18 @@
 import express from "express";
 import consign from "consign";
 
-const PORT = 3000;
 const app = express();
 
 consign()
     .include("models")
+    .then("config.js")
     .then("routes")
     .into(app);
 
+var port = app.config.port;
+
 app.listen(
-    PORT, 
+    port, 
     () => console.log(
-        `Task API listening on port ${PORT}.`)
+        `Task API listening on port ${port}.`)
 );
