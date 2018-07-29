@@ -10,9 +10,10 @@ consign()
     .into(app);
 
 var port = app.config.serverConfig.port;
+var apiName = app.config.serverConfig.apiName;
 
 app.listen(
     port, 
     () => console.log(
-        `Task API listening on port ${port}.`)
+        `${apiName} listening on port ${port}.`)
 );
