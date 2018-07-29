@@ -9,7 +9,7 @@ consign()
     .then("routes")
     .into(app);
 
-var port = app.config.port;
+var port = app.config.serverConfig.port;
 
 app.listen(
     port, 
